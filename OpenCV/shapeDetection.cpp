@@ -39,18 +39,23 @@ int main()
 {
     cv::VideoCapture cap(0);
     if (!cap.isOpened())
+    {
+        printf("No camera\n");
         return -1;
+    }
 
-    cv::namedWindow("src", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("dst", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("debug", CV_WINDOW_AUTOSIZE);
+    //cv::namedWindow("src", CV_WINDOW_AUTOSIZE);
+    //cv::namedWindow("dst", CV_WINDOW_AUTOSIZE);
+    //cv::namedWindow("debug", CV_WINDOW_AUTOSIZE);
     
     for (;;)
     {
         cv::Mat src;
         cap >> src;
-        if (src.empty())
+        if (src.empty()) {
             return -1;
+        }
+
 
         // Convert to grayscale
         cv::Mat gray;
@@ -204,10 +209,10 @@ int main()
 
 
 
-        cv::imshow("src", src);
-        cv::imshow("dst", dst);
-        cv::imshow("debug", bw);
-        if ((char)cv::waitKey(30) >= 0) break;
+        //cv::imshow("src", src);
+        //cv::imshow("dst", dst);
+        //cv::imshow("debug", bw);
+        //if ((char)cv::waitKey(30) >= 0) break;
     }
 	return 0;
 }
