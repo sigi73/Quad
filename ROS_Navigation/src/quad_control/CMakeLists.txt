@@ -205,6 +205,9 @@ include_directories(
 add_executable(quad_control src/quad_control.cpp)
 target_link_libraries(quad_control ${catkin_LIBRARIES})
 
+add_executable(picture_streamer src/picture_streamer.cpp)
+target_link_libraries(picture_streamer ${catkin_LIBRARIES})
+
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 

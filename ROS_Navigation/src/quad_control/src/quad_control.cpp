@@ -1,7 +1,10 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+#include "sensor_msgs/Image.h"
 
 #include <sstream>
+
+#include <cv_bridge/cv_bridge.h>
 
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -10,12 +13,33 @@
 
 static double angle(cv::Point pt1, cv::Point pt2, cv::Point pt0)
 {
-	double dx1 = pt1.x - pt0.x;
-        double dy1 = pt1.y - pt0.y;
-        double dx2 = pt2.x - pt0.x;
-        double dy2 = pt2.y - pt0.y;
-        return (dx1*dx2 + dy1*dy2)/sqrt((dx1*dx1 + dy1*dy1)*(dx2*dx2 + dy2*dy2) + 1e-10);
+  double dx1 = pt1.x - pt0.x;
+  double dy1 = pt1.y - pt0.y;
+  double dx2 = pt2.x - pt0.x;
+  double dy2 = pt2.y - pt0.y;
+  return (dx1*dx2 + dy1*dy2)/sqrt((dx1*dx1 + dy1*dy1)*(dx2*dx2 + dy2*dy2) + 1e-10);
 }
+
+cv::Mat updated;
+bool imageFound = false;
+
+void cameraCallback(const sensor_msgs::ImageConstPtr &msg)
+{
+  //ROS_INFO("Camera_callback called\n");
+  cv_bridge::CvImagePtr cv_ptr; 
+  try
+  {
+    cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+  }
+  catch(cv_bridge::Exception &e)
+  {
+    ROS_ERROR("cv_bridge exception: %s", e.what()); 
+    return;
+  }
+  updated = cv_ptr->image;
+  imageFound = true;
+}
+
 
 
 /**
@@ -33,7 +57,7 @@ int main(int argc, char **argv)
    * You must call one of the versions of ros::init() before using any other
    * part of the ROS system.
    */
-  ros::init(argc, argv, "talker");
+  ros::init(argc, argv, "quad_control");
 
   /**
    * NodeHandle is the main access point to communications with the ROS system.
@@ -59,16 +83,19 @@ int main(int argc, char **argv)
    * than we can send them, the number here specifies how many messages to
    * buffer up before throwing some away.
    */
-  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("quad_movement", 1000);
+  ros::Subscriber sub = n.subscribe("image_grabber", 1000, cameraCallback);
 
   ros::Rate loop_rate(10);
 
+  /*
   cv::VideoCapture cap(0);
   if (!cap.isOpened())
   {
     printf("No camera\n");
     return -1;
   }
+  */
 
     
   /**
@@ -76,14 +103,18 @@ int main(int argc, char **argv)
    * a unique string for each message.
    */
   int count = 0;
+
   while (ros::ok())
   {
-    /**
-     * This is a message object. You stuff it with data, and then publish it.
-     */
+
     cv::Mat src;
+    /*
     cap >> src;
     if (src.empty()) return -1;
+    */
+    if (!imageFound) continue;
+    src = updated;
+
 
     cv::Mat gray;
     cv::cvtColor(src, gray, CV_BGR2GRAY);
