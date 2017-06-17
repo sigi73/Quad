@@ -6,10 +6,10 @@
 
 int main(int argc, char **argv)
 {
-  ros::init(argc, argv, "image_grabber");
+  ros::init(argc, argv, "picture_streamer");
   ros::NodeHandle n;
   
-  ros::Publisher image_pub = n.advertise<sensor_msgs::Image>("image_grabber", 1000);
+  ros::Publisher image_pub = n.advertise<sensor_msgs::Image>("picture_streamer", 1000);
 
   ros::Rate loop_rate(10);
 
@@ -36,6 +36,13 @@ int main(int argc, char **argv)
     out_msg.image = src;
 
     counter++;
+
+    image_pub.publish(out_msg);
+
+    ros::spinOnce();
+
+    loop_rate.sleep();
+    ROS_INFO("Streaming");
   }
 
 }

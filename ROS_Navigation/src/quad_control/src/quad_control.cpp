@@ -25,7 +25,7 @@ bool imageFound = false;
 
 void cameraCallback(const sensor_msgs::ImageConstPtr &msg)
 {
-  //ROS_INFO("Camera_callback called\n");
+  ROS_INFO("Camera_callback called");
   cv_bridge::CvImagePtr cv_ptr; 
   try
   {
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
    * buffer up before throwing some away.
    */
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("quad_movement", 1000);
-  ros::Subscriber sub = n.subscribe("image_grabber", 1000, cameraCallback);
+  ros::Subscriber sub = n.subscribe("picture_streamer", 1000, cameraCallback);
 
   ros::Rate loop_rate(10);
 
@@ -112,6 +112,8 @@ int main(int argc, char **argv)
     cap >> src;
     if (src.empty()) return -1;
     */
+    ROS_INFO("Control loop");
+    ros::spinOnce();
     if (!imageFound) continue;
     src = updated;
 
@@ -213,7 +215,6 @@ int main(int argc, char **argv)
      */
     chatter_pub.publish(msg);
 
-    ros::spinOnce();
 
     loop_rate.sleep();
     ++count;
