@@ -45,6 +45,13 @@ windows:
   - Pi:
       layout: even-horizontal
       panes:
-        - ssh pi@192.168.0.30
+        - 
+        -
+  - Pi-Testing:
+      layout: tiled
+      panes:
+        -
+        -
+        -
         -
   - Other: 

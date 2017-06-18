@@ -1,1 +1,1 @@
-tmuxinator open QuadDevelopment
+tmuxinator start QuadDevelopment
