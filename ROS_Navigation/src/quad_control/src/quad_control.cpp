@@ -84,9 +84,12 @@ int main(int argc, char **argv)
    * buffer up before throwing some away.
    */
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("quad_movement", 1000);
-  ros::Subscriber sub = n.subscribe("picture_streamer", 1000, cameraCallback);
+  //ros::Subscriber sub = n.subscribe("picture_streamer", 1000, cameraCallback);
+  ros::Subscriber sub = n.subscribe("/cv_camera/image_raw", 1000, cameraCallback);
 
   ros::Rate loop_rate(10);
+
+
 
   /*
   cv::VideoCapture cap(0);
@@ -112,7 +115,7 @@ int main(int argc, char **argv)
     cap >> src;
     if (src.empty()) return -1;
     */
-    ROS_INFO("Control loop");
+    //ROS_INFO("Control loop");
     ros::spinOnce();
     if (!imageFound) continue;
     src = updated;

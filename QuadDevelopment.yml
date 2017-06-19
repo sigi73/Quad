@@ -30,13 +30,11 @@ root: ~/
 windows:
   - Dev:
       layout: even-horizontal
-      root: ~/catkin_ws/src/
       panes:
         - 
         - 
   - Testing:
       layout: tiled
-      root: ~/catkin_ws
       panes:
         -
         -
@@ -55,3 +53,4 @@ windows:
         -
         -
   - Other: 
+        -
