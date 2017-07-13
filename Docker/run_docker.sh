@@ -1,0 +1,1 @@
+docker run -p 4000:11311 -v  rosquad
