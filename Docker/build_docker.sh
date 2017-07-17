@@ -1,1 +1,1 @@
-docker build -t rosquad
+sudo docker build -t rosquad .
