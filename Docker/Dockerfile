@@ -16,8 +16,8 @@ ENV LC_ALL C.UTF-8
 ENV ROS_DISTRO indigo
 RUN apt-get update && apt-get install -y \
     ros-indigo-desktop ros-indigo-cv-bridge ros-indigo-cv-camera ros-indigo-opencv3 \
-    tmux x11-apps \
-    build-essential qt-sdk qtcreator qt5-default \
+    ros-indigo-openni-* ros-indigo-freenect* \
+    tmux x11-apps freenect \
     && rm -rf /var/lib/apt/lists/*
 
 # bootstrap rosdep
