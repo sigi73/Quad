@@ -1,0 +1,51 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ArgumentParser	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^        from argparse import ArgumentParser$/;"	kind:namespace	line:17
+CATKIN_MARKER_FILE	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^CATKIN_MARKER_FILE = '.catkin'$/;"	kind:variable	line:46
+CMAKE_PREFIX_PATH	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = '\/ROS_Navigation\/catkin_ws\/devel;\/opt\/ros\/indigo'.split(';')$/;"	kind:variable	line:266
+CMAKE_PREFIX_PATH	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = os.pathsep.join(CMAKE_PREFIX_PATH)$/;"	kind:variable	line:271
+ENV_VAR_SUBFOLDERS	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^ENV_VAR_SUBFOLDERS = {$/;"	kind:variable	line:53
+IS_DARWIN	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^IS_DARWIN = (system == 'Darwin')$/;"	kind:variable	line:49
+IS_WINDOWS	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^IS_WINDOWS = (system == 'Windows')$/;"	kind:variable	line:50
+MyPlugin	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^class MyPlugin(Plugin):$/;"	kind:class	line:9
+Plugin	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^from qt_gui.plugin import Plugin$/;"	kind:namespace	line:5
+QWidget	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^from python_qt_binding.QtGui import QWidget$/;"	kind:namespace	line:7
+__init__	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^    def __init__(self, context):$/;"	kind:member	line:11
+__init__.py	../ROS_Navigation/catkin_ws/devel/lib/python2.7/dist-packages/freenect_camera/__init__.py	1;"	kind:file	line:1
+__init__.py	../ROS_Navigation/catkin_ws/devel/lib/python2.7/dist-packages/freenect_camera/cfg/__init__.py	1;"	kind:file	line:1
+__init__.py	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/__init__.py	1;"	kind:file	line:1
+_get_workspaces	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def _get_workspaces(environ, include_fuerte=False, include_non_existing=False):$/;"	kind:function	line:115
+_parse_arguments	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def _parse_arguments(args=None):$/;"	kind:function	line:251
+_prefix_env_variable	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def _prefix_env_variable(environ, name, paths, subfolders):$/;"	kind:function	line:150
+_rollback_env_variable	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def _rollback_env_variable(environ, name, subfolders):$/;"	kind:function	line:84
+_setup_util.py	../ROS_Navigation/catkin_ws/devel/_setup_util.py	1;"	kind:file	line:1
+argparse	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^import argparse$/;"	kind:namespace	line:39
+args	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^            args = _parse_arguments()$/;"	kind:variable	line:260
+assignment	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def assignment(key, value):$/;"	kind:function	line:176
+base_path	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^        base_path = os.path.dirname(__file__)$/;"	kind:variable	line:268
+comment	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def comment(msg):$/;"	kind:function	line:183
+copy	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^import copy$/;"	kind:namespace	line:40
+environ	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^        environ = dict(os.environ)$/;"	kind:variable	line:273
+errno	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^import errno$/;"	kind:namespace	line:41
+find_env_hooks	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def find_env_hooks(environ, cmake_prefix_path):$/;"	kind:function	line:199
+lines	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^        lines = []$/;"	kind:variable	line:274
+loadUi	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^from python_qt_binding import loadUi$/;"	kind:namespace	line:6
+my_module.py	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	1;"	kind:file	line:1
+os	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^import os$/;"	kind:namespace	line:42
+os	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^import os$/;"	kind:namespace	line:1
+platform	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^import platform$/;"	kind:namespace	line:43
+prepend	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def prepend(environ, key, prefix):$/;"	kind:function	line:190
+prepend_env_variables	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def prepend_env_variables(environ, env_var_subfolders, workspaces):$/;"	kind:function	line:130
+print_function	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^from __future__ import print_function$/;"	kind:namespace	line:38
+restore_settings	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^    def restore_settings(self, plugin_settings, instance_settings):$/;"	kind:member	line:55
+rollback_env_variables	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^def rollback_env_variables(environ, env_var_subfolders):$/;"	kind:function	line:63
+rospkg	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^import rospkg$/;"	kind:namespace	line:3
+rospy	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^import rospy$/;"	kind:namespace	line:2
+save_settings	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^    def save_settings(self, plugin_settings, instance_settings):$/;"	kind:member	line:50
+shutdown_plugin	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^    def shutdown_plugin(self):$/;"	kind:member	line:46
+sys	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^import sys$/;"	kind:namespace	line:44
+system	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^system = platform.system()$/;"	kind:variable	line:48

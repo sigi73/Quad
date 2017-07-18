@@ -1,4 +1,5 @@
 docker run --rm -it -p 4000:11311 \
+    --name="rosquad" \
     --volume="$PWD/../ROS_Navigation/:/ROS_Navigation" \
     --privileged \
     --device=/dev/video0 \
