@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(quad_control)
+project(rqt_mypkg)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -7,14 +7,10 @@ project(quad_control)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(OpenCV REQUIRED)
-
 find_package(catkin REQUIRED COMPONENTS
-  cv_bridge
-  cv_camera
-  image_transport
-  roscpp
   rospy
+  rqt_gui
+  rqt_gui_py
 )
 
 ## System dependencies are found with CMake's conventions
@@ -74,7 +70,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs
+#   std_msgs  # Or other packages containing msgs
 # )
 
 ################################################
@@ -108,8 +104,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES quad_control
-#  CATKIN_DEPENDS cv_bridge cv_camera image_transport opencv3 roscpp std_msgs
+#  LIBRARIES rqt_mypkg
+#  CATKIN_DEPENDS rospy rqt_gui rqt_gui_py
 #  DEPENDS system_lib
 )
 
@@ -126,7 +122,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/quad_control.cpp
+#   src/${PROJECT_NAME}/rqt_mypkg.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -137,7 +133,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/quad_control_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/rqt_mypkg_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -194,20 +190,10 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_quad_control.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_rqt_mypkg.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-
-add_executable(quad_control src/quad_control.cpp)
-target_link_libraries(quad_control ${catkin_LIBRARIES})
-
-add_executable(picture_streamer src/picture_streamer.cpp)
-target_link_libraries(picture_streamer ${catkin_LIBRARIES})
-
-add_executable(listener src/listener.cpp)
-target_link_libraries(listener ${catkin_LIBRARIES})
-
