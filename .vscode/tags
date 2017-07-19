@@ -6,7 +6,7 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 ArgumentParser	../ROS_Navigation/catkin_ws/src/rqt_mypkg/src/rqt_mypkg/my_module.py	/^        from argparse import ArgumentParser$/;"	kind:namespace	line:17
 CATKIN_MARKER_FILE	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^CATKIN_MARKER_FILE = '.catkin'$/;"	kind:variable	line:46
-CMAKE_PREFIX_PATH	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = '\/ROS_Navigation\/catkin_ws\/devel;\/opt\/ros\/indigo'.split(';')$/;"	kind:variable	line:266
+CMAKE_PREFIX_PATH	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = '\/opt\/ros\/indigo'.split(';')$/;"	kind:variable	line:266
 CMAKE_PREFIX_PATH	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^        CMAKE_PREFIX_PATH = os.pathsep.join(CMAKE_PREFIX_PATH)$/;"	kind:variable	line:271
 ENV_VAR_SUBFOLDERS	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^ENV_VAR_SUBFOLDERS = {$/;"	kind:variable	line:53
 IS_DARWIN	../ROS_Navigation/catkin_ws/devel/_setup_util.py	/^IS_DARWIN = (system == 'Darwin')$/;"	kind:variable	line:49
