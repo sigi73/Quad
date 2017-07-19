@@ -17,14 +17,14 @@ class MyPlugin(Plugin):
         self._publisher = None
 
         self._widget = QWidget()
-
+        
         # Process standalone plugin command-line arguments
         from argparse import ArgumentParser
         parser = ArgumentParser()
         # Add argument(s) to the parser.
         parser.add_argument("-q", "--quiet", action="store_true",
-                      dest="quiet",
-                      help="Put plugin in silent mode")
+                            dest="quiet",
+                            help="Put plugin in silent mode")
         args, unknowns = parser.parse_known_args(context.argv())
         if not args.quiet:
             print 'arguments: ', args
@@ -44,7 +44,8 @@ class MyPlugin(Plugin):
         # plugin at once, these lines add number to make it easy to 
         # tell from pane to pane.
         if context.serial_number() > 1:
-            self._widget.setWindowTitle(self._widget.windowTitle() + (' (%d)' % context.serial_number()))
+            self._widget.setWindowTitle(self._widget.windowTitle() + 
+                                        (' (%d)' % context.serial_number()))
         # Add widget to the user interface
         context.add_widget(self._widget)
 
@@ -93,18 +94,19 @@ class MyPlugin(Plugin):
             self._publisher = None
 
     def _on_parameter_changed(self):
-        self._send_rc(self._widget.throttle_slider.value(), self._widget.pitch_slider.value(), self._widget.roll_slider.value(), self._widget.yaw_slider.value())
+        self._send_rc(self._widget.throttle_slider.value(), self._widget.pitch_slider.value(),
+                      self._widget.roll_slider.value(), self._widget.yaw_slider.value())
 
     def _send_rc(self, throttle, pitch, roll, yaw):
         if self._publisher is None:
             return
         rcin = RCIn()
-        rcin.channels[0] = roll;
-        rcin.channels[1] = pitch;
-        rcin.channels[2] = throttle;
-        rcin.channels[3] = yaw;
+        rcin.channels[0] = roll
+        rcin.channels[1] = pitch
+        rcin.channels[2] = throttle
+        rcin.channels[3] = yaw
         for i in range(4, 9):
-            rcin.channels[0] = 65535
+            rcin.channels[i] = 65535
 
         self._publisher.publish(rcin)
 
