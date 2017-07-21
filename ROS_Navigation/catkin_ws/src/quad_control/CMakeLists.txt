@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   roscpp
   rospy
+  mavros
 )
 
 ## System dependencies are found with CMake's conventions
