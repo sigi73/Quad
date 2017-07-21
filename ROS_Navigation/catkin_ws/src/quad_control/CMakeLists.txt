@@ -212,3 +212,5 @@ target_link_libraries(picture_streamer ${catkin_LIBRARIES})
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 
+add_executable(movement_testing src/movement_testing.cpp)
+target_link_libraries(movement_testing ${catkin_LIBRARIES})
