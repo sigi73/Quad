@@ -5,7 +5,7 @@ import rospkg
 from qt_gui.plugin import Plugin
 from python_qt_binding import loadUi
 from python_qt_binding.QtWidgets import QWidget
-from mavros_msgs.msg import RCIn
+from mavros_msgs.msg import OverrideRCIn
 
 class MyPlugin(Plugin):
 
@@ -62,15 +62,16 @@ class MyPlugin(Plugin):
         topic = str(topic)
         self._unregister_publisher()
         try:
-            self._publisher = rospy.Publisher(topic, RCIn, queue_size=10)
+            self._publisher = rospy.Publisher(topic, OverrideRCIn, queue_size=10)
         except TypeError:
-            self._publisher = rospy.Publisher(topic, RCIn)
+            self._publisher = rospy.Publisher(topic, OverrideRCIn)
 
     def _on_stop_pressed(self):
         self._widget.throttle_slider.setValue(0)
         self._widget.pitch_slider.setValue(0)
         self._widget.roll_slider.setValue(0)
         self._widget.yaw_slider.setValue(0)
+        self._send_rc(65535, 65535, 65535, 65535)
 
     def _on_throttle_slider_changed(self):
         self._widget.current_throttle_label.setText('%d' % (self._widget.throttle_slider.value()))
@@ -100,13 +101,15 @@ class MyPlugin(Plugin):
     def _send_rc(self, throttle, pitch, roll, yaw):
         if self._publisher is None:
             return
-        rcin = RCIn()
+        rcin = OverrideRCIn()
         rcin.channels[0] = roll
         rcin.channels[1] = pitch
         rcin.channels[2] = throttle
         rcin.channels[3] = yaw
-        for i in range(4, 9):
-            rcin.channels[i] = 65535
+        rcin.channels[4] = 65535
+        rcin.channels[5] = 65535
+        rcin.channels[6] = 65535
+        rcin.channels[7] = 65535
 
         self._publisher.publish(rcin)
 
