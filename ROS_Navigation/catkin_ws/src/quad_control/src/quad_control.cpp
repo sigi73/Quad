@@ -26,6 +26,8 @@
 #define YAW_STICK_AMOUNT      500
 #define THROTTLE_INCREMENT    5
 
+#define VIDEO_DEBUGGING
+
 static double angle(cv::Point pt1, cv::Point pt2, cv::Point pt0)
 {
   double dx1 = pt1.x - pt0.x;
@@ -98,30 +100,13 @@ int main(int argc, char **argv)
    * than we can send them, the number here specifies how many messages to
    * buffer up before throwing some away.
    */
-  //ros::Publisher chatter_pub = n.advertise<std_msgs::String>("quad_movement", 1000);
   ros::Publisher movement_pub = n.advertise<mavros_msgs::OverrideRCIn>("/mavros/rc/override", 1000);
-  //ros::Subscriber sub = n.subscribe("picture_streamer", 1000, cameraCallback);
   ros::Subscriber sub = n.subscribe("/cv_camera/image_raw", 1000, cameraCallback);
 
   ros::Rate loop_rate(10);
 
 
 
-  /*
-  cv::VideoCapture cap(0);
-  if (!cap.isOpened())
-  {
-    printf("No camera\n");
-    return -1;
-  }
-  */
-
-    
-  /**
-   * A count of how many messages we have sent. This is used to create
-   * a unique string for each message.
-   */
-  int count = 0;
 
   float currentThrottle = THROTTLE_START;
 
@@ -151,7 +136,10 @@ int main(int argc, char **argv)
     cv::findContours(bw.clone(), contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
     std::vector<cv::Point> approx;
-    //cv::Mat dst = src.clone();
+    #ifdef VIDEO_DEBUGGING
+    cv::Mat dst = src.clone();
+    cv::namedWindow("debug",1);
+    #endif
 
     std::vector<cv::Point> triangleShape;
     std::vector<cv::Point> circleShape;
@@ -190,6 +178,7 @@ int main(int argc, char **argv)
     cv::Point2f triangleCenter = cv::Point2f(triangleMoment.m10 / triangleMoment.m00, triangleMoment.m01 / triangleMoment.m00);
 
     cv::Point2f paperCenter = cv::Point2f((circleCenter.x + triangleCenter.x) / 2.0f, (circleCenter.y + triangleCenter.y) / 2.0f);
+
 
     
     mavros_msgs::OverrideRCIn msg;
@@ -261,8 +250,17 @@ int main(int argc, char **argv)
     movement_pub.publish(msg);
 
 
+    #ifdef VIDEO_DEBUGGING
+    cv::circle(dst, paperCenter, 4, cv::Scalar(0, 0, 255));
+    cv::circle(dst, cv::Point(xTarget, yTarget), 4, cv::Scalar(255, 0, 0));
+
+    cv::line(dst, paperCenter, paperCenter + targetTranslation, cv::Scalar(0, 255, 0));
+
+    cv::imshow("debug", dst);
+    cv::waitKey(1);
+    #endif
+
     loop_rate.sleep();
-    ++count;
   }
 
 
