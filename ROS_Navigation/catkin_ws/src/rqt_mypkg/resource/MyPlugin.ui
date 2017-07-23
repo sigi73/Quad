@@ -39,7 +39,7 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="throttle_layout" stretch="1,0,0,0,1">
+    <layout class="QHBoxLayout" name="throttle_layout" stretch="1,0,0,0,0,1">
      <item>
       <spacer name="horizontalSpacer_9">
        <property name="orientation">
@@ -59,7 +59,7 @@
         <number>40</number>
        </property>
        <item>
-        <widget class="QPushButton" name="increase_throttle_button">
+        <widget class="QPushButton" name="high_throttle_button">
          <property name="maximumSize">
           <size>
            <width>30</width>
@@ -70,7 +70,7 @@
           <string>Increase linear  velocity</string>
          </property>
          <property name="text">
-          <string>+</string>
+          <string>High</string>
          </property>
         </widget>
        </item>
@@ -88,7 +88,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="reset_throttle_button">
+        <widget class="QPushButton" name="mid_throttle_button">
          <property name="maximumSize">
           <size>
            <width>30</width>
@@ -99,7 +99,7 @@
           <string>Reset linear  velocity</string>
          </property>
          <property name="text">
-          <string>0</string>
+          <string>Mid</string>
          </property>
         </widget>
        </item>
@@ -117,7 +117,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="decrease_throttle_button">
+        <widget class="QPushButton" name="low_throttle_button">
          <property name="maximumSize">
           <size>
            <width>30</width>
@@ -128,7 +128,7 @@
           <string>Decrease linear  velocity</string>
          </property>
          <property name="text">
-          <string>-</string>
+          <string>Low</string>
          </property>
         </widget>
        </item>
@@ -157,23 +157,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="throttle_values_layout" stretch="0,0,0,0,0">
-       <item>
-        <widget class="QDoubleSpinBox" name="max_throttle_spin_box">
-         <property name="toolTip">
-          <string>Maximum linear  velocity</string>
-         </property>
-         <property name="maximum">
-          <double>10.000000000000000</double>
-         </property>
-         <property name="singleStep">
-          <double>0.100000000000000</double>
-         </property>
-         <property name="value">
-          <double>1.000000000000000</double>
-         </property>
-        </widget>
-       </item>
+      <layout class="QVBoxLayout" name="throttle_values_layout" stretch="0,0,0">
        <item>
         <spacer name="verticalSpacer_11">
          <property name="orientation">
@@ -193,7 +177,10 @@
           <string>Current linear velocity</string>
          </property>
          <property name="text">
-          <string>0.0 m/s</string>
+          <string>Val</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -210,26 +197,14 @@
          </property>
         </spacer>
        </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="min_throttle_spin_box">
-         <property name="toolTip">
-          <string>Minimum linear  velocity</string>
-         </property>
-         <property name="minimum">
-          <double>-10.000000000000000</double>
-         </property>
-         <property name="maximum">
-          <double>0.000000000000000</double>
-         </property>
-         <property name="singleStep">
-          <double>0.100000000000000</double>
-         </property>
-         <property name="value">
-          <double>-1.000000000000000</double>
-         </property>
-        </widget>
-       </item>
       </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="detach_throttle_button">
+       <property name="text">
+        <string>Detach</string>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_10">
@@ -247,7 +222,30 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="pitch_layout" stretch="0,0,0,0,0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Throttle</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_5">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>80</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="pitch_layout" stretch="0,0,0,0,0,0">
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -267,7 +265,7 @@
         <number>40</number>
        </property>
        <item>
-        <widget class="QPushButton" name="increase_pitch_button">
+        <widget class="QPushButton" name="high_pitch_button">
          <property name="maximumSize">
           <size>
            <width>30</width>
@@ -278,7 +276,7 @@
           <string>Increase linear  velocity</string>
          </property>
          <property name="text">
-          <string>+</string>
+          <string>High</string>
          </property>
         </widget>
        </item>
@@ -296,7 +294,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="reset_pitch_button">
+        <widget class="QPushButton" name="mid_pitch_button">
          <property name="maximumSize">
           <size>
            <width>30</width>
@@ -307,7 +305,7 @@
           <string>Reset linear  velocity</string>
          </property>
          <property name="text">
-          <string>0</string>
+          <string>Mid</string>
          </property>
         </widget>
        </item>
@@ -325,7 +323,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="decrease_pitch_button">
+        <widget class="QPushButton" name="low_pitch_button">
          <property name="maximumSize">
           <size>
            <width>30</width>
@@ -336,7 +334,7 @@
           <string>Decrease linear  velocity</string>
          </property>
          <property name="text">
-          <string>-</string>
+          <string>Low</string>
          </property>
         </widget>
        </item>
@@ -365,23 +363,7 @@
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="pitch_values_layout" stretch="0,0,0,0,0">
-       <item>
-        <widget class="QDoubleSpinBox" name="max_pitch_spin_box">
-         <property name="toolTip">
-          <string>Maximum linear  velocity</string>
-         </property>
-         <property name="maximum">
-          <double>10.000000000000000</double>
-         </property>
-         <property name="singleStep">
-          <double>0.100000000000000</double>
-         </property>
-         <property name="value">
-          <double>1.000000000000000</double>
-         </property>
-        </widget>
-       </item>
+      <layout class="QVBoxLayout" name="pitch_values_layout" stretch="0,0,0">
        <item>
         <spacer name="verticalSpacer_3">
          <property name="orientation">
@@ -401,7 +383,10 @@
           <string>Current linear velocity</string>
          </property>
          <property name="text">
-          <string>0.0 m/s</string>
+          <string>Val</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -418,26 +403,14 @@
          </property>
         </spacer>
        </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="min_pitch_spin_box">
-         <property name="toolTip">
-          <string>Minimum linear  velocity</string>
-         </property>
-         <property name="minimum">
-          <double>-10.000000000000000</double>
-         </property>
-         <property name="maximum">
-          <double>0.000000000000000</double>
-         </property>
-         <property name="singleStep">
-          <double>0.100000000000000</double>
-         </property>
-         <property name="value">
-          <double>-1.000000000000000</double>
-         </property>
-        </widget>
-       </item>
       </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="detach_pitch_button">
+       <property name="text">
+        <string>Detach</string>
+       </property>
+      </widget>
      </item>
      <item>
       <spacer name="horizontalSpacer_2">
@@ -453,6 +426,29 @@
       </spacer>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Pitch</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_6">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>80</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QSlider" name="yaw_slider">
@@ -482,7 +478,7 @@
    <item>
     <layout class="QHBoxLayout" name="yaw_buttons_layout">
      <item>
-      <widget class="QPushButton" name="decrease_yaw_button">
+      <widget class="QPushButton" name="low_yaw_button">
        <property name="maximumSize">
         <size>
          <width>30</width>
@@ -493,7 +489,7 @@
         <string>Increase angular velocity</string>
        </property>
        <property name="text">
-        <string>&lt;</string>
+        <string>Low</string>
        </property>
       </widget>
      </item>
@@ -511,7 +507,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="reset_yaw_button">
+      <widget class="QPushButton" name="mid_yaw_button">
        <property name="maximumSize">
         <size>
          <width>30</width>
@@ -522,7 +518,7 @@
         <string>Reset angular velocity</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>Mid</string>
        </property>
       </widget>
      </item>
@@ -540,7 +536,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="increase_yaw_button">
+      <widget class="QPushButton" name="high_yaw_button">
        <property name="maximumSize">
         <size>
          <width>30</width>
@@ -551,30 +547,14 @@
         <string>Decrease angular velocity</string>
        </property>
        <property name="text">
-        <string>&gt;</string>
+        <string>High</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="yaw_values_layout" stretch="0,0,0,0,0">
-     <item>
-      <widget class="QDoubleSpinBox" name="min_yaw_spin_box">
-       <property name="toolTip">
-        <string>Maximum angular velocity</string>
-       </property>
-       <property name="maximum">
-        <double>10.000000000000000</double>
-       </property>
-       <property name="singleStep">
-        <double>0.100000000000000</double>
-       </property>
-       <property name="value">
-        <double>3.000000000000000</double>
-       </property>
-      </widget>
-     </item>
+    <layout class="QHBoxLayout" name="yaw_values_layout" stretch="0,0,0">
      <item>
       <spacer name="horizontalSpacer_13">
        <property name="orientation">
@@ -594,7 +574,10 @@
         <string>Current angular velocity</string>
        </property>
        <property name="text">
-        <string>0.0 rad/s</string>
+        <string>Val</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -611,26 +594,37 @@
        </property>
       </spacer>
      </item>
-     <item>
-      <widget class="QDoubleSpinBox" name="max_yaw_spin_box">
-       <property name="toolTip">
-        <string>Minimum angular velocity</string>
-       </property>
-       <property name="minimum">
-        <double>-10.000000000000000</double>
-       </property>
-       <property name="maximum">
-        <double>0.000000000000000</double>
-       </property>
-       <property name="singleStep">
-        <double>0.100000000000000</double>
-       </property>
-       <property name="value">
-        <double>-3.000000000000000</double>
-       </property>
-      </widget>
-     </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="detach_yaw_button">
+     <property name="text">
+      <string>Detach</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Yaw</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_7">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>80</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QSlider" name="roll_slider">
@@ -660,7 +654,7 @@
    <item>
     <layout class="QHBoxLayout" name="roll_buttons_layout">
      <item>
-      <widget class="QPushButton" name="decrease_roll_button">
+      <widget class="QPushButton" name="low_roll_button">
        <property name="maximumSize">
         <size>
          <width>30</width>
@@ -671,7 +665,7 @@
         <string>Increase angular velocity</string>
        </property>
        <property name="text">
-        <string>&lt;</string>
+        <string>Low</string>
        </property>
       </widget>
      </item>
@@ -689,7 +683,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="reset_roll_button">
+      <widget class="QPushButton" name="mid_roll_button">
        <property name="maximumSize">
         <size>
          <width>30</width>
@@ -700,7 +694,7 @@
         <string>Reset angular velocity</string>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>Mid</string>
        </property>
       </widget>
      </item>
@@ -718,7 +712,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="increase_roll_button">
+      <widget class="QPushButton" name="high_roll_button">
        <property name="maximumSize">
         <size>
          <width>30</width>
@@ -729,30 +723,14 @@
         <string>Decrease angular velocity</string>
        </property>
        <property name="text">
-        <string>&gt;</string>
+        <string>High</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="roll_values_layout" stretch="0,0,0,0,0">
-     <item>
-      <widget class="QDoubleSpinBox" name="min_roll_spin_box">
-       <property name="toolTip">
-        <string>Maximum angular velocity</string>
-       </property>
-       <property name="maximum">
-        <double>10.000000000000000</double>
-       </property>
-       <property name="singleStep">
-        <double>0.100000000000000</double>
-       </property>
-       <property name="value">
-        <double>3.000000000000000</double>
-       </property>
-      </widget>
-     </item>
+    <layout class="QHBoxLayout" name="roll_values_layout" stretch="0,0,0">
      <item>
       <spacer name="horizontalSpacer_5">
        <property name="orientation">
@@ -772,7 +750,10 @@
         <string>Current angular velocity</string>
        </property>
        <property name="text">
-        <string>0.0 rad/s</string>
+        <string>Val</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -789,38 +770,38 @@
        </property>
       </spacer>
      </item>
-     <item>
-      <widget class="QDoubleSpinBox" name="max_roll_spin_box">
-       <property name="toolTip">
-        <string>Minimum angular velocity</string>
-       </property>
-       <property name="minimum">
-        <double>-10.000000000000000</double>
-       </property>
-       <property name="maximum">
-        <double>0.000000000000000</double>
-       </property>
-       <property name="singleStep">
-        <double>0.100000000000000</double>
-       </property>
-       <property name="value">
-        <double>-3.000000000000000</double>
-       </property>
-      </widget>
-     </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="detach_roll_button">
+     <property name="text">
+      <string>Detach</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Roll</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </item>
   </layout>
   <zorder>roll_slider</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget_2</zorder>
-  <zorder>layoutWidget_3</zorder>
   <zorder>yaw_slider</zorder>
-  <zorder>horizontalSpacer_2</zorder>
-  <zorder>horizontalSpacer</zorder>
-  <zorder>min_yaw_spin_box</zorder>
-  <zorder>horizontalSpacer_13</zorder>
-  <zorder>current_yaw_label</zorder>
+  <zorder></zorder>
+  <zorder>detach_yaw_button</zorder>
+  <zorder>detach_roll_button</zorder>
+  <zorder>verticalSpacer_5</zorder>
+  <zorder>label</zorder>
+  <zorder>verticalSpacer_6</zorder>
+  <zorder>label_2</zorder>
+  <zorder>verticalSpacer_7</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
  </widget>
  <resources/>
  <connections/>

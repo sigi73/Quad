@@ -13,7 +13,7 @@ int main(int argc, char **argv)
     ros::Rate loop_rate(100);
     for (int i = 0; i < 8; i++)
     {
-        msg.channels[i] = 65535;
+        msg.channels[i] = 0;
     }
 
     double segmentStartTime = ros::Time::now().toSec();
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
             }
             case 2:
             {
-                msg.channels[2] = 65535;
+                msg.channels[2] = 0;
                 if (ros::Time::now().toSec() > segmentStartTime + 1)
                 {
                     currentState++;

@@ -71,7 +71,8 @@ class MyPlugin(Plugin):
         self._widget.pitch_slider.setValue(0)
         self._widget.roll_slider.setValue(0)
         self._widget.yaw_slider.setValue(0)
-        self._send_rc(65535, 65535, 65535, 65535)
+        #self._send_rc(65535, 65535, 65535, 65535)
+        self._send_rc(0, 0, 0, 0)
 
     def _on_throttle_slider_changed(self):
         self._widget.current_throttle_label.setText('%d' % (self._widget.throttle_slider.value()))
