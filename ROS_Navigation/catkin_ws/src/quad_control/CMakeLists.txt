@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   mavros
+  apriltags
 )
 
 ## System dependencies are found with CMake's conventions
@@ -214,3 +215,6 @@ target_link_libraries(listener ${catkin_LIBRARIES})
 
 add_executable(movement_testing src/movement_testing.cpp)
 target_link_libraries(movement_testing ${catkin_LIBRARIES})
+
+add_executable(pattern_detection src/pattern_detection.cpp)
+target_link_libraries(pattern_detection ${catkin_LIBRARIES})
