@@ -218,3 +218,6 @@ target_link_libraries(movement_testing ${catkin_LIBRARIES})
 
 add_executable(pattern_detection src/pattern_detection.cpp)
 target_link_libraries(pattern_detection ${catkin_LIBRARIES})
+
+add_executable(vertical_move src/vertical_move.cpp)
+target_link_libraries(vertical_move ${catkin_LIBRARIES})
